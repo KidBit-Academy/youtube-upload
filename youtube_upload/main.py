@@ -237,9 +237,6 @@ def main(arguments):
     parser.add_option('', '--license', dest='license', metavar="string",
                       choices=('youtube', 'creativeCommon'), default='youtube',
                       help='License for the video, either "youtube" (the default) or "creativeCommon"')
-    parser.add_option('', '--location', dest='location', type="string",
-                      default=None, metavar="latitude=VAL,longitude=VAL[,altitude=VAL]",
-                      help='Video location"')
     parser.add_option('', '--recording-date', dest='recording_date', metavar="datetime",
                       default=None, help="Recording date (ISO 8601): YYYY-MM-DDThh:mm:ss.sZ")
     parser.add_option('', '--default-language', dest='default_language', type="string",
