@@ -151,8 +151,7 @@ def upload_youtube_video(youtube, options, video_path, total_videos, index):
 
         },
         "recordingDetails": {
-            "location": lib.string_to_dict(options.location),
-            "recordingDate": options.recording_date,
+            "recordingDate": f'{options.recording_date}',
         },
     }
 
@@ -232,15 +231,12 @@ def main(arguments):
     parser.add_option('', '--tags', dest='tags', type="string",
                       help='Video tags (separated by commas: "tag1, tag2,...")')
     parser.add_option('', '--privacy', dest='privacy', metavar="STRING",
-                      default="public", help='Privacy status (public | unlisted | private)')
+                      default="private", help='Privacy status (public | unlisted | private)')
     parser.add_option('', '--publish-at', dest='publish_at', metavar="datetime",
                       default=None, help='Publish date (ISO 8601): YYYY-MM-DDThh:mm:ss.sZ')
     parser.add_option('', '--license', dest='license', metavar="string",
                       choices=('youtube', 'creativeCommon'), default='youtube',
                       help='License for the video, either "youtube" (the default) or "creativeCommon"')
-    parser.add_option('', '--location', dest='location', type="string",
-                      default=None, metavar="latitude=VAL,longitude=VAL[,altitude=VAL]",
-                      help='Video location"')
     parser.add_option('', '--recording-date', dest='recording_date', metavar="datetime",
                       default=None, help="Recording date (ISO 8601): YYYY-MM-DDThh:mm:ss.sZ")
     parser.add_option('', '--default-language', dest='default_language', type="string",
